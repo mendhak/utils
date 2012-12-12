@@ -1,0 +1,2 @@
+#Uninstalls all previous linux kernels except the current one.
+for k in `dpkg --list | grep linux-image | grep -v $(uname -r) | awk '{print $2 }'`; do sudo apt-get -y purge $k; done; sudo update-grub2;. 
